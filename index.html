@@ -42,41 +42,29 @@ layout: page
 {% endif %}
 
 
-#search-input {
-    width: 90%;
-    height: 35px;
-    color: #333;
-    background-color: rgba(227,231,236,.2);
-    line-height: 35px;
-    padding:0px 16px;
-    border: 1px solid #c0c0c0;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 17px;
-    outline: none;
-    box-sizing: border-box;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
-}
-#search-input:focus {
-    outline: none;
-    border-color: rgb(102, 175, 233);
-    background-color: #fff;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #007fff;
-}
-
+<!-- Html Elements for Search -->
 <div id="search-container">
-  <input type="text" id="search-input" placeholder="search...">
-  <ul id="results-container"></ul>
+<input type="text" id="search-input" placeholder="search...">
+<ul id="results-container"></ul>
 </div>
 
-<script src="/simple-jekyll-search.min.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="{{ site.baseurl }}/bower_components/simple-jekyll-search/dest/jekyll-search.js" type="text/javascript"></script>
 
 SimpleJekyllSearch({
     searchInput: document.getElementById('search-input'),
     resultsContainer: document.getElementById('results-container'),
     json: '/search.json',
-    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>', // 文章列表模板
-    noResultsText: '没有搜索到文章', // 无搜索数据提示语
-    limit: 20, // 返回最大文章数
-    fuzzy: false // 是否模糊匹配
-})
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: '没有搜索到文章',
+    limit: 20,
+    fuzzy: false
+  })
+
+<div class="dropdown navbar-form navbar-right ">
+   <input  id="dLabel" name="word" type="text"  aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="form-control typeahead"   placeholder="搜索">
+  
+  <ul class="dropdown-menu" aria-labelledby="dLabel" id="c">
+    
+  </ul>
+</div>
